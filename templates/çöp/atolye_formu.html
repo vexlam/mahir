@@ -1,0 +1,22 @@
+{% include "base.html" %}
+
+<h2>ATÖLYE FORMU</h2>
+<h3>VELİ BİLGİLENDİRME ve ONAM FORMU</h3>
+
+<div class="divider"></div>
+
+<div class="section">
+    <p><span class="info">Atölye Süresi:</span> {{ student.seans_günleri }} günleri, {{ student.seans_saati }} saatleri arasında.</p>
+    <p>Kayıt olunan tarih: <strong>{{ kayıt_tarihi }}</strong></p>
+    <p>Program süresi: <strong>{{ toplam_hafta }}</strong> hafta, <strong>{{ seans_sayisi }}</strong> geliş, <strong>{{ toplam_saat }}</strong> saat</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+    <p><span class="info">Atölye Programı:</span> Atölye içeriği hakkında bilgi verilmemiştir.</p>
+</div>
+
+<div class="divider"></div>
+
+{% include "footer.html" %}

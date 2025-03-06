@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miera Akademi - Veli Bilgilendirme ve Onam Formu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 2px solid black;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #2C3E50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .info {
+            font-weight: bold;
+        }
+        .divider {
+            border-bottom: 2px solid black;
+            margin: 10px 0;
+        }
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .signature div {
+            text-align: center;
+            width: 45%;
+        }
+        .signature p {
+            border-top: 1px solid black;
+            display: inline-block;
+            padding-top: 5px;
+        }
+        .print-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .print-button:hover {
+            background: #2980b9;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MİERA AKADEMİ</h1>
+    <h3>PSİKOLOJİK DANIŞMANLIK VE ATÖLYE MERKEZİ</h3>
+    
+    <div class="divider"></div>
+
+    <div class="section">
+        <p><span class="info">VELİ TEL:</span> {{ student.veli_telefon }}</p>
+        <p><span class="info">ÇOCUK DOĞUM TARİHİ:</span> {{ student.dogum_tarihi }}</p>
+    </div>
+
+    <h2>ANAOKULU/KREŞE HAZIRLIK OYUN GRUBU</h2>
+    <h3>VELİ BİLGİLENDİRME ve ONAM FORMU</h3>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p><span class="info">Atölye Süresi:</span> <strong>{{ student.seans_günleri }}</strong> günleri, <strong>{{ student.seans_saati }}</strong> saatleri arasında.</p>
+        <p>Kayıt olunan tarih: <strong>{{ student.kayıt_tarihi }}</strong></p>
+        <p>Program süresi: <strong>{{ toplam_hafta }}</strong> hafta, <strong>{{ seans_sayisi }}</strong> geliş, <strong>{{ toplam_saat }}</strong> saat</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p><span class="info">Ücret:</span> Ödeme atölyenin ilk günü nakit ya da EFT/havale yolu ile ödenir.</p>
+    </div>
+
+    <div class="section">
+        <p><span class="info">Atölye Giriş/Çıkış:</span> Anne-baba ya da bakım veren tarafından atölyeye teslim edilen çocuk, 
+            atölye bitişinden 5 dakika önce gelen ebeveyne çıkış saatinde kapıdan teslim edilir.</p>
+    </div>
+
+    <div class="section">
+        <p><span class="info">Atölye Programı:</span> Psikolojik Danışman denetiminde yürütülen atölyenin amacı eğitim vermek 
+            değil, gelişimsel değerlendirmesi yapılan çocukların gelişimlerine uygun etkinlik ve aktivitelerle 
+            okul-kreş sürecine hazırlığını sağlamaktır. Oyun merkezde olduğu atölye sürecinde DENVER II testi uygulanacaktır.</p>
+    </div>
+
+    <div class="section">
+        <p><span class="info">Aile Görüşmesi:</span> 5 haftalık süreçte 1 defa aile ile görüşme yapılacaktır. 
+            Seans süresi 45 dakika olan görüşmede aile çocukla ilgili problem yaşadığı konular var ise danışmanlık alır, 
+            uzman çocuk ile ilgili gözlemlerini aktarır.</p>
+    </div>
+
+    <div class="section">
+        <p><span class="info">İptal-İade:</span> Atölye başladıktan ve ücret ödendikten sonra herhangi bir iptal/iade durumu 
+            söz konusu olamamaktadır. Katılamayacak çocuk gelmeyeceği atölye sayısı/hakkı istedikleri zamana kadar saklı tutulacaktır.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section">
+        <p><em>Yukarıda yazılı olan bilgilendirmeyi okudum. Aşağıda kimliği yazılı çocuğumun/yakınımın Miera Akademi 
+        Psikolojik Danışmanlık ve Atölye Merkezi’nden oyun atölyesi hizmeti almasını uygun görüyorum.</em></p>
+    </div>
+
+    <div class="section">
+        <p><span class="info">Tarih:</span> {{ kayıt_tarihi }}</p>
+    </div>
+
+    <div class="signature">
+        <div>
+            <p>Danışan (Çocuk)</p>
+            <p>{{ student.ad }} {{ student.soyad }} / {{ student.tc }}</p>
+        </div>
+        <div>
+            <p>Veli</p>
+            <p>{{ student.veli_adi }}</p>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">🖨️ Yazdır</button>
+
+</body>
+</html>

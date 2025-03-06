@@ -1,0 +1,12 @@
+{% include "base.html" %}
+
+<h2>GELİŞİM DESTEKLİ OYUN GRUBU</h2>
+<h3>VELİ BİLGİLENDİRME ve ONAM FORMU</h3>
+
+<div class="section">
+    <p><span class="info">Atölye Süresi:</span> {{ student.seans_günleri }} günleri, {{ student.seans_saati }} saatleri arasında.</p>
+    <p>Kayıt olunan tarih: <strong>{{ kayıt_tarihi }}</strong></p>
+    <p>Program süresi: <strong>{{ toplam_hafta }}</strong> hafta, <strong>{{ seans_sayisi }}</strong> geliş, <strong>{{ toplam_saat }}</strong> saat</p>
+</div>
+
+{% include "footer.html" %}

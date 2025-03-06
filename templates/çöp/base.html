@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miera Akademi - Veli Bilgilendirme</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <center>
+        {% if logo_var_mi %}
+            <img src="{{ url_for('static', filename='images/miera_logo.png') }}" alt="Miera Akademi Logo" width="250">
+        {% else %}
+            <h1>MİERA AKADEMİ</h1>
+        {% endif %}
+    </center>
+
+    <h3>PSİKOLOJİK DANIŞMANLIK VE ATÖLYE MERKEZİ</h3>
+    <div class="divider"></div>

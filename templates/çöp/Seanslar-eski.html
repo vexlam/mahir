@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seans Takvimi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    {% include 'navbar.html' %}
+    
+    <div class="container mt-4">
+        <h2 class="text-center">📅 Seans Takvimi</h2>
+
+        <!-- Seans Ekleme Formu -->
+        <form action="{{ url_for('add_seans') }}" method="POST" class="mb-4">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="session_name" class="form-control" placeholder="Ders Adı" required>
+                </div>
+                <div class="col">
+                    <input type="text" name="session_date" class="form-control" placeholder="Gün (Örn: Pazartesi, Çarşamba)" required>
+                </div>
+                <div class="col">
+                    <input type="text" name="session_time" class="form-control" placeholder="Saat (Örn: 10:00 - 11:30)" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">➕ Seans Ekle</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Seans Listesi -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ders Adı</th>
+                    <th>Gün</th>
+                    <th>Saat</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for seans in seanslar %}
+                <tr>
+                    <td>{{ seans['id'] }}</td>
+                    <td>{{ seans['session_name'] }}</td>
+                    <td>{{ seans['session_date'] }}</td>
+                    <td>{{ seans['session_time'] }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_seans', seans_id=seans['id']) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">❌ Sil</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
